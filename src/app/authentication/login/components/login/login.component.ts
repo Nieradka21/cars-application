@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
+
 import { Usuarios } from '../../model/login.model';
 import { LoginService } from '../../service/login.service';
 
@@ -22,18 +23,18 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    private modalService: NgbModal,
-    private loginService: LoginService) { 
+    private spinner: NgxSpinnerService,
+    private loginService: LoginService) {
 
-      this.loginForm = this.fb.group({
+    this.loginForm = this.fb.group({
 
-        email: this.fb.control('', [Validators.required]),
-        pass: this.fb.control('', [Validators.required, Validators.minLength(3)]),
-      })
-    }
+      email: this.fb.control('', [Validators.required]),
+      pass: this.fb.control('', [Validators.required, Validators.minLength(3)]),
+    })
+  }
 
   ngOnInit(): void {
-
+    this.spinner.show();
   }
 
 
@@ -60,9 +61,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-  /*resetPass() {
-    const ref = this.modalService.open(LoginResetComponent, { centered: true })
 
-  }*/
 
 }
