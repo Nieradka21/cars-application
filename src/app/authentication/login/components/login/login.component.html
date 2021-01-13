@@ -1,34 +1,50 @@
-<body class="text-center">
+<body>
     <div *ngIf="carregar">
         <ngx-spinner bdColor="rgba(0,0,0,0.94)" size="medium" color="#fff600" type="pacman" [fullScreen]="true">
             <p class="loading" style="color: white"> Entrando... </p>
         </ngx-spinner>
     </div>
-    <form [formGroup]="loginForm" class="form-signin">
-        <!--<img class="mb-4" [src]="img" alt="" width="72" height="72">-->
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input formControlName="email" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="../../../../../assets/img/img.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                <h3>Sign In</h3>
+                                <p class="mb-4">Usuario e senha padão: user.</p>
+                            </div>
+                            <form [formGroup]="loginForm">
+                                <div class="form-group first">
+                                    <label for="username">Username</label>
+                                    <input formControlName="email" type="text" class="form-control" id="username">
+                                </div>
+                                <div class="form-group last mb-4">
+                                    <label for="password">Password</label>
+                                    <input formControlName="pass" type="password" class="form-control" id="password">
+                                </div>
+                                <span style="color: red;" *ngIf="error ==true">
+                                    Email ou senha invalidos!!!
+                                 </span>
 
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input formControlName="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <div class="d-flex mb-5 align-items-center">
+                                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+<input type="checkbox" checked="checked" />
+<div class="control__indicator"></div>
+</label>
+                                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                                </div>
+                                <input (click)="login()" [disabled]="loginForm.invalid" type="submit" value="Log In" class="btn btn-block btn-primary">
 
-        <span style="color: red;" *ngIf="error ==true">
-        Email ou senha invalidos!!!
-      </span>
-
-        <div class="checkbox mb-3">
-            <!--<label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>-->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button (click)="login()" [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Sign
-        in</button>
-        <br>
-        <!--<a [routerLink]="" (click)="resetPass()">Esqueci minha senha!</a>-->
-        <p>Login = user e Senha = 123</p>
-
-        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-    </form>
+    </div>
 
 </body>
