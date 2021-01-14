@@ -9,6 +9,7 @@ import { LoginComponent } from './authentication/login/components/login/login.co
 import { LoginService } from './authentication/login/service/login.service';
 import {  HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { CarsService } from './home/service/cars.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [LoginService],
+  providers: [LoginService,CarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
