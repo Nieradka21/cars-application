@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
-import { Cars } from '../model/cars.model';
+import { Cars, Page } from '../model/cars.model';
 import { CARS_API } from 'src/app/Api';
 
 @Injectable()
@@ -31,9 +31,9 @@ export class CarsService {
     }
   }
 
-  getCars(): Observable<Cars> {
+  getCarsByType(type, page, size): Observable<Page> {
     return this.http
-      .get<Cars>(`${CARS_API}/api`, this.options)
+      .get<any>(`${CARS_API}/api/type/${type}/?page=${page}&size=${size}`, this.options)
       .map(res => res)
     //&sort=name&name.dir=asc
   }

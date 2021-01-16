@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cars } from './model/cars.model';
+import { Cars, Page, Pageable } from './model/cars.model';
 import { CarsService } from './service/cars.service';
 
 @Component({
@@ -8,21 +8,22 @@ import { CarsService } from './service/cars.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  imagens: Cars;
+  page: Page;
+  pageNumber: Pageable;
+  imagens: Array<Cars> ;
   car: Cars = {} as Cars
   constructor(
     private carsService: CarsService
   ) { }
 
   ngOnInit() {
-    this.carsService.getCars().subscribe(
+    this.carsService.getCarsByType("classicos",0,4).subscribe(
       res => {
-    this.imagens = res ;         
-        console.log(this.imagens)
-        
+        this.page = res;
+        this.imagens = this.page.content;
       }
     )
+
   }
 
 
