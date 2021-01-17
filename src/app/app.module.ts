@@ -10,12 +10,14 @@ import { LoginService } from './authentication/login/service/login.service';
 import {  HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CarsService } from './home/service/cars.service';
+import { PaginationComponent } from './pagination/paginacao.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

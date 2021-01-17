@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <!-- Bootstrap CDN -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <!-- Bootstrap Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <title>Bootstrap 4 Carousel Multiple Items / Images</title>
-</head>
 
 <body class="bg-light m-5">
     <div class="container-fluid bg-info">
@@ -28,7 +17,7 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <!--*ngFor="let photo of imagens; let i = index" [ngClass]="{'active': i == 0 }"-->
-                <div class="carousel-item active">
+                <div class="carousel-item " *ngFor="let photo of imagens; let i = index" [ngClass]="{'active': i == 0 }">
                     <!-- Second Slide -->
                     <div class="d-flex justify-content-around">
                         <!-- Flex Slide Box -->
@@ -50,6 +39,7 @@
         </div>
     </div>
 
+    <!--<pagination [page]="page" (paginationEvent)=changePage($event)></pagination>-->
 
     <!--car2-->
     <br>
