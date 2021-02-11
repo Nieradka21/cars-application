@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
-import { Cars, Page } from '../model/cars.model';
 import { CARS_API } from 'src/app/Api';
+import { Cars, Page } from '../models/cars.model';
 
 @Injectable()
 export class CarsService {

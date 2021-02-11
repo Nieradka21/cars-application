@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Usuarios } from '../../model/login.model';
-import { LoginService } from '../../service/login.service';
+import { Usuarios } from 'src/app/models/login.model';
+import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css','./login.component.font.css']
+  styleUrls: ['./login.component.css', './login.component.font.css']
 })
 export class LoginComponent implements OnInit {
 
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    localStorage.clear();
   }
 
 

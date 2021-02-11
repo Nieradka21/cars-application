@@ -5,19 +5,21 @@ import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './authentication/login/components/login/login.component';
-import { LoginService } from './authentication/login/service/login.service';
+import { LoginService } from './services/login.service';
 import {  HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
-import { CarsService } from './home/service/cars.service';
-import { PaginationComponent } from './pagination/paginacao.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from './services/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { CarsService } from './services/cars.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    PaginationComponent
+    HomeComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -26,14 +28,15 @@ import { PaginationComponent } from './pagination/paginacao.component';
     NgbModule,
     NgxSpinnerModule,
     HttpClientModule,
-
+    CarouselModule,
+    BrowserAnimationsModule,
 
 
 
     AppRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [LoginService,CarsService],
+  providers: [LoginService,CarsService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
