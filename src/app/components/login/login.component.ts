@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Usuarios } from 'src/app/models/login.model';
 import { LoginService } from 'src/app/services/login.service';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @Component({
@@ -23,7 +25,9 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private router: Router,
     private spinner: NgxSpinnerService,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private modalService: NgbModal
+  ) {
 
     this.loginForm = this.fb.group({
 
@@ -34,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
 
@@ -47,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(login)
       .subscribe(
         res => {
-          localStorage['token'] = res.token;
+          sessionStorage['token'] = res.token;
           this.loginService.setUser(res);
           this.router.navigate(['/home']);
           this.carregar = false;
@@ -61,6 +65,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-
+  resetPass() {
+    const ref = this.modalService.open(ForgotPasswordComponent, { centered: true })
+  }
 
 }

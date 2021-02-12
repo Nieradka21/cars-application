@@ -18,7 +18,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) {
 
-    let user: Usuarios = JSON.parse(localStorage.getItem('token'));
+    let user: Usuarios = JSON.parse(sessionStorage.getItem('token'));
     if (user != null) {
       this.user = user;
       let httpHeaders = new HttpHeaders({
@@ -44,7 +44,7 @@ export class LoginService {
   }
   setUser(user: Usuarios) {
     this.user = user;
-    localStorage.setItem('token', JSON.stringify(user));
+    sessionStorage.setItem('token', JSON.stringify(user));
     this.messageEvent.emit(user);
 
     this.httpHeaders = new HttpHeaders(
@@ -59,7 +59,10 @@ export class LoginService {
     };
   }
 
-
+  enviarEmail(user: Usuarios): Observable<any> {
+    return this.http.post(`${CARS_API}/email`, user)
+      .map(response => response)
+  }
   
 
 }

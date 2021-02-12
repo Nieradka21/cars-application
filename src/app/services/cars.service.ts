@@ -15,7 +15,7 @@ export class CarsService {
 
   constructor(private http: HttpClient) { 
 
-    let cars: Cars = JSON.parse(localStorage.getItem('token'));
+    let cars: Cars = JSON.parse(sessionStorage.getItem('token'));
     if (cars != null) {
       this.car = cars;
       let httpHeaders = new HttpHeaders({
