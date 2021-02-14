@@ -60,7 +60,7 @@ export class LoginService {
   }
 
   enviarEmail(user: Usuarios): Observable<any> {
-    return this.http.post(`${CARS_API}/email`, user)
+    return this.http.post(`${CARS_API}/api/email`, user)
       .map(response => response)
   }
   
