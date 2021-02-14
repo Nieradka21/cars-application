@@ -64,5 +64,19 @@ export class LoginService {
     return this.http.post(`${CARS_API}/api/email`, user, { responseType: 'text' })
   }
 
+  resetPassword(user: Usuarios): Observable<any> {
+    this.httpHeaders = new HttpHeaders(
+      {
+        'Content-Type': 'application/json',
+
+        'Authorization': "Bearer " + user.token
+      }
+    );
+    this.options = {
+      headers: this.httpHeaders
+    };
+    return this.http.put(`${CARS_API}/api/reset`, user,this.options)
+
+  }
 
 }

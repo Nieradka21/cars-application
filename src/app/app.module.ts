@@ -14,13 +14,15 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CarsService } from './services/cars.service';
 import { ForgotPasswordComponent } from './components/login/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/login/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent
 
   ],
   imports: [
