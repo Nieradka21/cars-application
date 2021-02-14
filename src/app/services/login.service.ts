@@ -1,10 +1,11 @@
-import { Injectable,EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CARS_API } from 'src/app/Api';
 import { ErrorHandler } from 'src/app/app.error-handler';
 import { catchError } from 'rxjs/operators';
 import { Usuarios } from '../models/login.model';
+import { ResponseType } from '@angular/http';
 
 
 
@@ -51,7 +52,7 @@ export class LoginService {
       {
         'Content-Type': 'application/json',
 
-        'Authorization':this.user.token
+        'Authorization': this.user.token
       }
     );
     this.options = {
@@ -60,9 +61,8 @@ export class LoginService {
   }
 
   enviarEmail(user: Usuarios): Observable<any> {
-    return this.http.post(`${CARS_API}/api/email`, user)
-      .map(response => response)
+    return this.http.post(`${CARS_API}/api/email`, user, { responseType: 'text' })
   }
-  
+
 
 }

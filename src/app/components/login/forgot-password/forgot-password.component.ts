@@ -42,6 +42,7 @@ export class ForgotPasswordComponent implements OnInit {
 
     if (this.loginForm.controls.email1.value == this.loginForm.controls.email2.value) {
       this.valida = false;
+      this.erro = false;
       this.loginService.enviarEmail(reset)
         .subscribe(
           res => {
