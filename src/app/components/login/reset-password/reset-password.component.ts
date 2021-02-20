@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Usuarios } from 'src/app/models/login.model';
 import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-reset-password',
@@ -18,13 +21,16 @@ export class ResetPasswordComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private snackBar: MatSnackBar,
+    private spinner: NgxSpinnerService,
   ) {
     this.criarForm();
   }
 
   ngOnInit() {
     this.token = this.activatedRoute.snapshot.queryParamMap.get("code");
+    this.spinner.show();
     console.log(this.token)
   }
 
@@ -37,17 +43,24 @@ export class ResetPasswordComponent implements OnInit {
 
 
   login() {
+    this.carregar = true;
     const reset = {} as Usuarios;
     reset.senha = this.resetForm.controls.pass1.value;
     reset.token = this.token;
+
     this.loginService.resetPassword(reset)
       .subscribe(
         res => {
           console.log(res)
           this.resetForm.reset();
+          this.carregar = false;
+          let msg: string = "Senha alterada com sucesso!";
+          this.snackBar.open(msg, "OK", { duration: 3000 });
         },
         err => {
           this.carregar = false;
+          let msg: string = "Erro ao realizar solicitação!";
+          this.snackBar.open(msg, "OK", { duration: 3000 });
           console.log(err)
         }
       )

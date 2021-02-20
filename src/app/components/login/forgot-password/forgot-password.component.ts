@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Usuarios } from 'src/app/models/login.model';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -19,10 +21,14 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     private fb: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private spinner: NgxSpinnerService,
+    private snackBar: MatSnackBar,
+
   ) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.criarForm();
   }
 
@@ -48,6 +54,7 @@ export class ForgotPasswordComponent implements OnInit {
           res => {
             this.carregar = false;
             console.log(res);
+            this.snackBar.open(res, "OK", { duration: 5000 });
             this.activeModal.close();
           }, err => {
             console.log(err)
