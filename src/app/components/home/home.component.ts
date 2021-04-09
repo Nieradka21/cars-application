@@ -15,20 +15,11 @@ export class HomeComponent implements OnInit {
   constructor(private carService: CarsService) { }
 
   ngOnInit() {
-    this.fetch();
+
   }
 
-  fetch() {
-
-    this.carService.getCarsByType("classicos", 0, 4).subscribe(
-      res => {
-        this.apiData = res
-        this.apiData2 = this.apiData.content;
-        this.pages = this.apiData.totalPages;
-        console.log(this.apiData)
-      });
-  }
-
+ 
+ 
 
 
 }
