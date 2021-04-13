@@ -30,12 +30,12 @@
                                     Email ou senha invalidos!!!
                                  </span>
 
-                                <div class="d-flex mb-5 align-items-center">
-                                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-<input type="checkbox" checked="checked" />
-<div class="control__indicator"></div>
-</label>
-                                    <span class="ml-auto"><a [routerLink]="" (click)="resetPass()"class="forgot-pass">Forgot Password</a></span>
+                                <div class="d-flex align-items-start flex-column bd-highlight mb-4">
+                                    <!--<label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                                            <input type="checkbox" checked="checked" />
+                                            <div class="control__indicator"></div>
+                                        </label>-->
+                                    <span class="align-self-center"><a [routerLink]="" (click)="resetPass()"class="forgot-pass">Forgot Password</a></span>
                                 </div>
                                 <input (click)="login()" [disabled]="loginForm.invalid" type="submit" value="Log In" class="btn btn-block btn-primary">
 

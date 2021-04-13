@@ -17,13 +17,15 @@ import { ForgotPasswordComponent } from './components/login/forgot-password/forg
 import { ResetPasswordComponent } from './components/login/reset-password/reset-password.component';
 import {  MatIconModule, MatSnackBarModule, MatTooltipModule } from '@angular/material';
 import 'hammerjs';
+import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    HeaderComponent
 
   ],
   imports: [
