@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { Usuarios } from 'src/app/models/login.model';
-import { LoginService } from 'src/app/services/login.service';
-
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MatSnackBar } from "@angular/material";
+import { ActivatedRoute } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
+import { Usuarios } from "src/app/models/login.model";
+import { LoginService } from "src/app/services/login.service";
 
 @Component({
-  selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  selector: "app-reset-password",
+  templateUrl: "./reset-password.component.html",
+  styleUrls: ["./reset-password.component.css"],
 })
 export class ResetPasswordComponent implements OnInit {
-
   carregar = false;
   resetForm: FormGroup;
   token: string;
@@ -23,7 +21,7 @@ export class ResetPasswordComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LoginService,
     private snackBar: MatSnackBar,
-    private spinner: NgxSpinnerService,
+    private spinner: NgxSpinnerService
   ) {
     this.criarForm();
   }
@@ -31,16 +29,21 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit() {
     this.token = this.activatedRoute.snapshot.queryParamMap.get("code");
     this.spinner.show();
-    console.log(this.token)
+    console.log(this.token);
   }
 
   criarForm() {
     this.resetForm = this.fb.group({
-      pass1: this.fb.control('', [Validators.required, Validators.minLength(6)]),
-      pass2: this.fb.control('', [Validators.required, Validators.minLength(6)]),
-    })
+      pass1: this.fb.control("", [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+      pass2: this.fb.control("", [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+    });
   }
-
 
   login() {
     this.carregar = true;
@@ -48,24 +51,20 @@ export class ResetPasswordComponent implements OnInit {
     reset.senha = this.resetForm.controls.pass1.value;
     reset.token = this.token;
 
-    this.loginService.resetPassword(reset)
-      .subscribe(
-        res => {
-          console.log(res)
-          this.resetForm.reset();
-          this.carregar = false;
-          let msg: string = "Senha alterada com sucesso!";
-          this.snackBar.open(msg, "OK", { duration: 3000 });
-        },
-        err => {
-          this.carregar = false;
-          let msg: string = "Erro ao realizar solicitação!";
-          this.snackBar.open(msg, "OK", { duration: 3000 });
-          console.log(err)
-        }
-      )
-
-
+    this.loginService.resetPassword(reset).subscribe(
+      (res) => {
+        console.log(res);
+        this.resetForm.reset();
+        this.carregar = false;
+        let msg: string = "Senha alterada com sucesso!";
+        this.snackBar.open(msg, "OK", { duration: 3000 });
+      },
+      (err) => {
+        this.carregar = false;
+        let msg: string = "Erro ao realizar solicitação!";
+        this.snackBar.open(msg, "OK", { duration: 3000 });
+        console.log(err);
+      }
+    );
   }
-
 }
