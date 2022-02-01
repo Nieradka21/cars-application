@@ -24,20 +24,23 @@
                                 </div>
                                 <div class="form-group last mb-4">
                                     <label for="password">Password</label>
-                                    <input formControlName="pass" type="password" class="form-control" id="password" autocomplete="off">
+                                    <input formControlName="pass" type="password" class="form-control" id="password"
+                                        autocomplete="off">
                                 </div>
                                 <span style="color: red;" *ngIf="error ==true">
                                     Email ou senha invalidos!!!
-                                 </span>
+                                </span>
 
                                 <div class="d-flex align-items-start flex-column bd-highlight mb-4">
                                     <!--<label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
                                             <input type="checkbox" checked="checked" />
                                             <div class="control__indicator"></div>
                                         </label>-->
-                                    <span class="align-self-center"><a [routerLink]="" (click)="resetPass()"class="forgot-pass">Forgot Password</a></span>
+                                    <span class="align-self-center"><a [routerLink]="" (click)="resetPass()"
+                                            class="forgot-pass">Forgot Password</a></span>
                                 </div>
-                                <input (click)="login()" [disabled]="loginForm.invalid" type="submit" value="Log In" class="btn btn-block btn-primary">
+                                <input (click)="login()" [disabled]="loginForm.invalid" type="submit" value="Log In"
+                                    class="btn btn-block btn-primary">
 
                             </form>
                         </div>
