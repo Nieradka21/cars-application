@@ -15,9 +15,10 @@ import { HomeComponent } from './components/home/home.component';
 import { CarsService } from './services/cars.service';
 import { ForgotPasswordComponent } from './components/login/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/login/reset-password/reset-password.component';
-import {  MatIconModule, MatSnackBarModule, MatTooltipModule } from '@angular/material';
 import 'hammerjs';
 import { HeaderComponent } from './components/header/header.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,14 +34,12 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatTooltipModule,
-    MatIconModule,
     FormsModule,
     NgbModule,
     NgxSpinnerModule,
     HttpClientModule,
     CarouselModule,
-    
+
 
 
 
