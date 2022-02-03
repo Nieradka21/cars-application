@@ -79,7 +79,7 @@ export class ResetPasswordComponent implements OnInit {
           let msg: string = "Erro ao realizar solicitação!";
           this.snackBar.open(msg, "OK", {
             duration: 3000,
-            panelClass: ["warning", "waaa"],
+            panelClass: "warning",
           });
           console.log(err);
         }

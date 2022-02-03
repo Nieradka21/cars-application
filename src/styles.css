@@ -12,13 +12,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.warning {
+.mat-simple-snackbar-action {
   color: yellow;
 }
-.waaa {
-  background-color: blue;
-}
 
-.baaaaa {
-  color: yellowgreen;
+.warning {
+  color: yellow;
 }
