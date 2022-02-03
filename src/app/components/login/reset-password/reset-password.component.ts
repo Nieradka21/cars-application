@@ -72,7 +72,10 @@ export class ResetPasswordComponent implements OnInit {
           this.resetForm.reset();
           this.carregar = false;
           let msg: string = "Senha alterada com sucesso!";
-          this.snackBar.open(msg, "OK", { duration: 3000 });
+          this.snackBar.open(msg, "OK", {
+            duration: 3000,
+            panelClass: "warning",
+          });
         },
         (err) => {
           this.carregar = false;
