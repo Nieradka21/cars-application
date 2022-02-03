@@ -17,8 +17,8 @@ import { ForgotPasswordComponent } from './components/login/forgot-password/forg
 import { ResetPasswordComponent } from './components/login/reset-password/reset-password.component';
 import 'hammerjs';
 import { HeaderComponent } from './components/header/header.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +39,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     NgxSpinnerModule,
     HttpClientModule,
     CarouselModule,
+    MatTooltipModule,
 
 
 
