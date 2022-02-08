@@ -19,6 +19,7 @@ import 'hammerjs';
 import { HeaderComponent } from './components/header/header.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     HomeComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotFoundComponent
 
   ],
   imports: [
