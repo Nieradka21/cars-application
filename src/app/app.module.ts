@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './services/auth.guard';
 import { LoginComponent } from './components/login/login.component';
@@ -20,9 +19,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     LoginComponent,
     HomeComponent,
     ForgotPasswordComponent,
@@ -40,7 +41,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NgbModule,
     NgxSpinnerModule,
     HttpClientModule,
-    CarouselModule,
     MatTooltipModule,
 
 

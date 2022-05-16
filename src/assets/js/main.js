@@ -1,8 +1,8 @@
 $(function() {
     'use strict';
 
-    $('.form-control').on('input', function() {
-        var $field = $(this).closest('.form-group');
+    $('.cast').on('input', function() {
+        var $field = $(this).closest('.casting');
         if (this.value) {
             $field.addClass('field--not-empty');
         } else {

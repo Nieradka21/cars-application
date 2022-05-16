@@ -18,18 +18,18 @@
                                 <p class="mb-4">Usuario:user@gmail.com e senha: user.</p>
                             </div>
                             <form [formGroup]="loginForm">
-                                <div class="form-group first">
+                                <div class="form-group first casting">
                                     <label for="username">Email</label>
-                                    <input formControlName="email" type="text" class="form-control" id="username">
+                                    <input formControlName="email" type="text" class="form-control cast" id="username">
                                 </div>
-                                <div class="form-group last mb-4">
+                                <div class="form-group last mb-4 casting">
                                     <label for="password">Password</label>
-                                    <input formControlName="pass" type="password" class="form-control" id="password"
+                                    <input formControlName="pass" type="password" class="form-control cast" id="password"
                                         autocomplete="off">
                                 </div>
-                                <span style="color: red;" *ngIf="error ==true">
+                               <!-- <span style="color: red;" *ngIf="error ==true">
                                     Email ou senha invalidos!!!
-                                </span>
+                                </span>-->
 
                                 <div class="d-flex align-items-start flex-column bd-highlight mb-4">
                                     <!--<label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
