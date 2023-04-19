@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
-import { Cars, Page } from "src/app/models/cars.model";
 import { CarsService } from "src/app/services/cars.service";
+import { Component, OnInit } from "@angular/core";
+import { Page } from "src/app/models/cars.model";
+
+declare var $: any;
 
 @Component({
   selector: "app-home",
@@ -9,23 +10,14 @@ import { CarsService } from "src/app/services/cars.service";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  apiData: Page;
-  apiData2: Array<Cars>;
-  pages: number;
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  showNavigationArrows = true;
-  showNavigationIndicators = true;
-  constructor(private carService: CarsService, config: NgbCarouselConfig) {
-    config.showNavigationArrows = false;
-    config.showNavigationIndicators = false;
-  }
+  images: string[];
+  constructor(private carsService: CarsService) {}
 
   ngOnInit(): void {
-    this.carService.getCarsByType("classicos", 0, 4).subscribe((res) => {
-      this.apiData = res;
-      this.apiData2 = this.apiData.content;
-      this.pages = this.apiData.totalPages;
-      console.log(this.apiData);
-    });
+    this.carsService
+      .getCarsByType("classicos", 0, 10)
+      .subscribe(
+        (cars) => (this.images = cars.content.map((car) => car.url_foto))
+      );
   }
 }

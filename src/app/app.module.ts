@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,6 +42,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NgxSpinnerModule,
     HttpClientModule,
     MatTooltipModule,
+    NgbCarouselModule,
 
 
 

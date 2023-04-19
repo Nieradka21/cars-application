@@ -57,7 +57,8 @@ export class LoginComponent implements OnInit {
         this.carregar = false;
         console.log(err);
         this._snackBar.open("Email ou senha invalidos!!!", "OK", {
-          duration: 5000
+          duration: 5000,
+          horizontalPosition:'left'
         });
       }
     );
