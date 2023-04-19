@@ -1,6 +1,6 @@
 import { CarsService } from "src/app/services/cars.service";
 import { Component, OnInit } from "@angular/core";
-import { Page } from "src/app/models/cars.model";
+import { OwlOptions } from "ngx-owl-carousel-o";
 
 declare var $: any;
 
@@ -12,8 +12,7 @@ declare var $: any;
 export class HomeComponent implements OnInit {
   images: string[];
   constructor(private carsService: CarsService) {}
-
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.carsService
       .getCarsByType("classicos", 0, 10)
       .subscribe(
